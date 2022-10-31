@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "1a77d625-5498-4bd6-bd47-eba06d0dc2a8",
+		"name": "User management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"id\", data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Ivana5\",\r\n   \"dob\" : \"01/01/2000\",\r\n   \"role\" : \"WORKER\",\r\n   \"active\"    : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{neon}}/users",
+					"host": [
+						"{{neon}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/users - security",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Ivana1\",\r\n   \"dob\" : \"01/01/2000\",\r\n   \"role\" : \"SECURITY\",\r\n   \"active\"    : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://neon-api-test-task.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"neon-api-test-task",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"85-mMJjSsmVShzeXyUbT/tOO28HOQw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Oct 2022 12:52:22 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Ivana1\",\n    \"dob\": \"01/01/2000\",\n    \"role\": \"SECURITY\",\n    \"active\": true,\n    \"id\": \"5a94ae53-a51d-46ac-884b-419dd247c842\"\n}"
+				},
+				{
+					"name": "/users - manager",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Ivana2\",\r\n   \"dob\" : \"01/01/2000\",\r\n   \"role\" : \"MANAGER\",\r\n   \"active\"    : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://neon-api-test-task.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"neon-api-test-task",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "132"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"84-9sOxx52WE7XKbRlc2t0IbnQIm+I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Oct 2022 12:53:17 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Ivana2\",\n    \"dob\": \"01/01/2000\",\n    \"role\": \"MANAGER\",\n    \"active\": true,\n    \"id\": \"cba2db08-bf23-4f9c-9fe7-e529ec502513\"\n}"
+				},
+				{
+					"name": "/users - worker",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Ivana3\",\r\n   \"dob\" : \"01/01/2000\",\r\n   \"role\" : \"WORKER\",\r\n   \"active\"    : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{neon}}/users",
+							"host": [
+								"{{neon}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"83-giVuS0bVIZFH9WzoKA2jqrnNyK4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Oct 2022 12:55:37 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Ivana3\",\n    \"dob\": \"01/01/2000\",\n    \"role\": \"WORKER\",\n    \"active\": true,\n    \"id\": \"a9452fbe-0292-4804-82eb-ebcd40e4154d\"\n}"
+				},
+				{
+					"name": "/users - inactive",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Ivana4\",\r\n   \"dob\" : \"01/01/2000\",\r\n   \"role\" : \"WORKER\",\r\n   \"active\"    : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{neon}}/users",
+							"host": [
+								"{{neon}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"83-Hu1M0QsQHKkT2VZ9qA0rGHG5/Vs\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 31 Oct 2022 18:32:29 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Ivana4\",\n    \"dob\": \"01/01/2000\",\n    \"role\": \"WORKER\",\n    \"active\": true,\n    \"id\": \"cb3e8794-6af6-4cca-a116-0ac1feade4b3\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{neon}}/users",
+					"host": [
+						"{{neon}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/users - Get all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://neon-api-test-task.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"neon-api-test-task",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"71-VL4s842CHnBcDzV/twBWOhl0LEk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Oct 2022 19:04:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"Ivana\",\n        \"dob\": \"01/01/2000\",\n        \"role\": \"SECURITY\",\n        \"active\": true,\n        \"id\": \"bcc82d93-7159-4792-b0ad-ee384d09a6e3\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "/users/:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "5a94ae53-a51d-46ac-884b-419dd247c842",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{neon}}/users/{{id}}",
+					"host": [
+						"{{neon}}"
+					],
+					"path": [
+						"users",
+						"{{id}}"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "SECURITY",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/users/:id - get by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "5a94ae53-a51d-46ac-884b-419dd247c842",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{neon}}/users/{{id}}",
+							"host": [
+								"{{neon}}"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "SECURITY",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"24-Oj0wDuEQLJjrazigSFKW5Osfvqw\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 31 Oct 2022 18:32:49 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "cb3e8794-6af6-4cca-a116-0ac1feade4b3"
+				}
+			]
+		},
+		{
+			"name": "/users/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"active\"    : false,\r\n   \"role\" : \"SECURITY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{neon}}/users/{{id}}",
+					"host": [
+						"{{neon}}"
+					],
+					"path": [
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/users/:id - patched",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"active\"    : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://neon-api-test-task.herokuapp.com/users/{{id}}",
+							"protocol": "https",
+							"host": [
+								"neon-api-test-task",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3e-yR5yMAAjoXajOD0eCv1RLLElXP4\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 31 Oct 2022 18:33:07 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "User Ivana4 is updated to role: WORKER and actiive set to true"
+				}
+			]
+		},
+		{
+			"name": "/users/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{neon}}/users/{{id}}",
+					"host": [
+						"{{neon}}"
+					],
+					"path": [
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/users/:id - deleted",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://neon-api-test-task.herokuapp.com/users/{{id}}",
+							"protocol": "https",
+							"host": [
+								"neon-api-test-task",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"32-qo/JWtKMmQSbcs1gw699CEGBoqI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 31 Oct 2022 18:34:01 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
